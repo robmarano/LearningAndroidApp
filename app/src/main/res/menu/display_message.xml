@@ -1,8 +1,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:paddingTop="?android:attr/actionBarSize"
     tools:context="com.thehackerati.academy.learnAndroid.DisplayMessageActivity" >
     <item android:id="@+id/action_settings"
         android:title="@string/action_settings"
-        android:orderInCategory="100"
-        android:showAsAction="never" />
+        android:visible="true"
+        android:showAsAction="always"
+        android:icon="@drawable/ic_action_settings" />
+    <!--
+        android:showAsAction="ifRoom"
+        android:orderInCategory="100" -->
+
+    <item android:id="@+id/action_search"
+        android:title="@string/action_search"
+        android:showAsAction="ifRoom"
+        android:icon="@drawable/ic_action_search" />
 </menu>

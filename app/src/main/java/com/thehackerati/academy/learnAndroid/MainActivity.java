@@ -3,6 +3,7 @@ package com.thehackerati.academy.learnAndroid;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+//import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,6 +18,11 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        // If your minSdkVersion is 11 or higher, instead use:
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
 
@@ -24,7 +30,8 @@ public class MainActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+        //return true;
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -33,10 +40,23 @@ public class MainActivity extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+
+        //if (id == R.id.action_settings) {
+        //    return true;
+        //}
+        //return super.onOptionsItemSelected(item);
+
+        // Handle presses on the action bar items
+        switch (id) {
+            case R.id.action_search:
+                openSearch();
+                return true;
+            case R.id.action_settings:
+                openSettings();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
     }
 
     /** Called when the user clicks the Send button */
@@ -48,4 +68,15 @@ public class MainActivity extends Activity {
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }
+
+    public void openSearch() {
+       // TODO
+        System.out.println("opening search...");
+    }
+
+    public void openSettings() {
+        // TODO
+        System.out.println("opening settings...");
+    }
+
 }
